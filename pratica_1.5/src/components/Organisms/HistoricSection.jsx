@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import Buttons from "../Molecules/Buttons"
 import CitationItem from "../Molecules/CitationItem"
 
-const ListSection = () => {
+const HistoricSection = () => {
     const [listVote, setListVote] = useState({ author: null, vote: null })
 
     useEffect(teste, [listVote])
@@ -60,4 +60,4 @@ const ListSection = () => {
 
 }
 
-export default ListSection
+export default HistoricSection
