@@ -1,12 +1,17 @@
+import axios from "axios"
 import { useState } from "react"
 import CitationList from "../Organisms/CitationList"
 import Welcome from "../Organisms/Welcome"
 
 const QuoteVoting = () => {
     const [Votation, setVotation] = useState(false)
+    const [fistLoad, setFistLoad] = useState()
 
-    function handleInitVotation(e) {
+
+    async function handleInitVotation(e) {
         if (!Votation) {
+            const res = await axios.get("https://animechan.vercel.app/api/random")
+            setFistLoad(res.data)
             setVotation(!Votation)
         }
     }
@@ -15,7 +20,7 @@ const QuoteVoting = () => {
             {
                 Votation
                     ?
-                    <CitationList />
+                    <CitationList fistLoad={fistLoad} />
                     :
                     <Welcome onClickInitVote={handleInitVotation} />
             }
