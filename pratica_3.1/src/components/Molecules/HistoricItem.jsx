@@ -1,18 +1,11 @@
 import CitationCard from "./CitationCard";
 
 const HistoricItem = (props) => {
-    function compare(a, b) {
-        if (a.note > b.note)
-            return -1;
-        if (a.note < b.note)
-            return 1;
-        return 0;
-    }
-    var listOrdened = props.value.sort(compare)
-    
-    return listOrdened.map(item => {
+    var listOrdened = props.value.sort((a, b) => a.note - b.note).reverse()
+    return listOrdened.map((item, index) => {
         return (
             <CitationCard
+                key={index}
                 citation={item.citation}
                 author={item.author}
                 movie={item.note}
