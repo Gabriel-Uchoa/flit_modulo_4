@@ -1,15 +1,19 @@
+import styled from "styled-components";
 import Span from "../Atoms/Span"
 import CitationNote from "./CitationNote"
 
 const CitationCard = (props) => {
-    const style = {
-        fontSize: "20px",
-        margin: "20px",
-        border: "solid 1px red",
-        padding: "10px"
-    }
+    const Div = styled.div`
+    font-size: 1.0em;
+    text-align: center;
+    color: palevioletred;
+    padding: 10px;
+    margin: 5px;
+    border: solid 1px red;
+  `;
+
     return (
-        <div style={style}>
+        <Div>
             <Span>{props.citation}</Span>
             <br />
             <Span>{props.author} - {props.movie} {props.note}</Span>
@@ -19,7 +23,7 @@ const CitationCard = (props) => {
                 :
                 false
             }
-        </div>
+        </Div>
 
     )
 }
