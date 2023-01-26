@@ -1,15 +1,15 @@
-import Benefits from "../Organisms/Benefits"
-import Header from "../Organisms/Header"
-import ProductList from "../Organisms/ProductList"
+import Benefits from "../Organisms/Benefits";
+import Header from "../Organisms/Header";
+import ProductList from "../Organisms/ProductList";
 
 const HomeTemplate = () => {
-    return (
-        <>
-           <Header/>
-           <Benefits/>
-           <ProductList/>
-        </>
-    )
-}
+  return (
+    <>
+      <Header />
+      <Benefits />
+      <ProductList />
+    </>
+  );
+};
 
-export default HomeTemplate
+export default HomeTemplate;
