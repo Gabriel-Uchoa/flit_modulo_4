@@ -9,6 +9,7 @@ export interface Product {
 }
 
 const ProductCard = (props: any) => {
+
   const Card = styled.div`
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     background-color: white;
@@ -29,14 +30,16 @@ const ProductCard = (props: any) => {
     padding: 2px 16px;
   `;
   if (props.data) {
+    var itemFilterText = props.data.filter((item: { name: string | any[]; }) => item.name.includes(props.textFilter))
+
     if (props.filter) {
-      var listOrdened = props.data.sort(
+      var listOrdened = itemFilterText.sort(
         (a: Product, b: Product) => a.price - b.price
       );
     } else {
-      var listOrdened = props.data.sort(
+      var listOrdened = itemFilterText.sort(
         (a: Product, b: Product) => b.price - a.price
-      );
+      )
     }
 
     return listOrdened.map((item: Product, index: number) => {

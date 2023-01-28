@@ -19,15 +19,15 @@ const getData = async () => {
   return data;
 };
 
-function ProductList() {
+function ProductList(props: any) {
   return (
     <QueryClientProvider client={qc}>
-      <ProductListData />
+      <ProductListData textFilter={props.textFilter} />
     </QueryClientProvider>
   );
 }
 
-function ProductListData() {
+function ProductListData(props: any) {
   const queryClient = useQueryClient();
   const { data } = useQuery("products", getData);
   const [filter, setFilter] = useState(true);
@@ -55,7 +55,7 @@ function ProductListData() {
     <>
       <ButtonFilter action={onFilter} type={valueText} />
       <SectionProducts>
-        <ProductCard data={data} filter={filter} />
+        <ProductCard data={data} filter={filter} textFilter={props.textFilter} />
       </SectionProducts>
     </>
   );
