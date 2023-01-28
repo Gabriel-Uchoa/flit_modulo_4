@@ -1,25 +1,26 @@
 import styled from "styled-components";
-import NavBar from "../Molecules/Navbar"
+import NavBar from "../Molecules/Navbar";
 import SearchBar from "../Molecules/SearchBar";
 
-const Header = () => {
+const HeaderSection = styled.header`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffdb15;
+  color: black;
+  min-height: 20vh;
+`;
 
-    const Header = styled.header`
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        background-color: #FFDB15;
-        color: black;
-        min-height: 20vh;
-    `;
 
-    return (
-        <Header>
-            <SearchBar/>
-            <NavBar />
-        </Header>
-    )
-}
+const Header = (props: any) => {
 
-export default Header
+  return (
+    <HeaderSection>
+      <SearchBar onChange={props.onChange} value={props.value} />
+      <NavBar />
+    </HeaderSection>
+  );
+};
+
+export default Header;
