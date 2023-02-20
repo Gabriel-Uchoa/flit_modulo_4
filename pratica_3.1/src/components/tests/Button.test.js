@@ -1,15 +1,17 @@
-import { render, screen } from "@testing-library/react"
-import CitationCard from "../Molecules/CitationCard"
+import { fireEvent, render, screen } from "@testing-library/react"
+import Button from "../Atoms/Button";
 
-test("O Componente deve ser renderizado corretamente", () => {
-    render(<CitationCard
-        citation="teste de citação"
-        author="teste de autor"
-        movie="teste de obra"
-        buttons={true}
-    />)
-
-    const CitationCardTest = screen.getByTestId("test-citation-card")
-    expect(CitationCardTest).toBeInTheDocument()
-    expect(CitationCardTest.textContent).toBe("teste de citaçãoteste de autor - teste de obra 12345678910")
-})
+describe('Renderizar Component Button Corretamente', () => {
+    test('Renderização do children Button', () => {
+        render(<Button>teste</Button>);
+        const button = screen.getByText('teste');
+        expect(button).toBeInTheDocument();
+    });
+    test('Chamada de funcão via props', () => {
+        const callFn = jest.fn();
+        render(<Button onAction={callFn}>teste</Button>);
+        const button = screen.getByText('teste');
+        fireEvent.click(button);
+        expect(callFn).toHaveBeenCalled();
+    });
+});
