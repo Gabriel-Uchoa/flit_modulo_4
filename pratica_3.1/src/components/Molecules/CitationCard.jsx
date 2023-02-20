@@ -13,7 +13,7 @@ const CitationCard = (props) => {
   `;
 
     return (
-        <Div>
+        <Div data-testid="test-citation-card">
             <Span>{props.citation}</Span>
             <br />
             <Span>{props.author} - {props.movie} {props.note}</Span>
