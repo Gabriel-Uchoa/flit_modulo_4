@@ -42,7 +42,7 @@ const CitationList = (props) => {
                 />
             </div>
             <div>
-                <HistoricItem value={QuoteVoted} />
+                <HistoricItem data-testid="test-historic-item" value={QuoteVoted} />
             </div>
         </>
     )
